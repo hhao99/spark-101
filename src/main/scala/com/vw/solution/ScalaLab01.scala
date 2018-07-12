@@ -25,7 +25,7 @@ object ScalaLab01 {
     val fileName="""data/people.json"""
 
     // Perform the read
-    var newRows = sqlContext.jsonFile( fileName )
+    var newRows = sqlContext.read.json( fileName )
      
     // Display results
     println( "Read " +  newRows.count() + " row(s) from: " + fileName)  
