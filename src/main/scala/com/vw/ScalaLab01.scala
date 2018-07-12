@@ -1,27 +1,28 @@
 package com.vw
 // Import libraries
-import org.apache.spark.sql.SQLContext
-import org.apache.spark.SparkConf
-import org.apache.spark.SparkContext
+import org.apache.spark.sql.functions._
+
+final case class Person(name:String, age: Long)
 
 /**
  * @author timothy.findlay
  */
-object ScalaLab01 {
+object ScalaLab01 extends InitSpark {
 
-  def main(args: Array[String]) {
-
-    // Setup Spark Configuration
-  
-    // Define Spark Context
+  def main(args: Array[String]) = {
+    import spark.implicits._
     
-    // Setup SQL Context to get Dataframe
-  
-    // Define Filename, store in a static variable fileName
+    println("SPARK VERION = " + spark.version)
 
-    // Perform the read
-     
-    // Display results
+    val persons = reader.json("people.json").as[Person]
+    persons.show()
+
+    val averageAge = persons.agg(avg("age"))
+                  .first.get(0).asInstanceOf[Double]
+
+    println(f"Average age: $averageAge%.2f")
+
+    close
 
   }
 
