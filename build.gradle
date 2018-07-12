@@ -1,0 +1,29 @@
+apply plugin: 'scala'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version = '1.0'
+description = "Apache Spark + Hadoop meetup group. Intro workshop Apr 20"
+
+def scalaVersion = '2.11.6'
+def sparkVersion = '2.2.1'
+def hadoopVersion = '2.7'
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+
+dependencies {
+    // this will download scala for you
+    compile "org.scala-lang:scala-library:$scalaVersion"
+    compile "org.apache.spark:spark-core_2.11:$sparkVersion"
+   
+
+    // testCompile group: 'junit', name: 'junit', version: '4.11'
+}
