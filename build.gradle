@@ -11,7 +11,7 @@ def scalaVersion = '2.11.6'
 def sparkVersion = '2.2.1'
 def hadoopVersion = '2.7'
 
-
+mainClassName="com.vw.ScalaLab01"
 repositories {
     mavenCentral()
     jcenter()
